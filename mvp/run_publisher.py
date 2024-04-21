@@ -1,3 +1,4 @@
+import asyncio
 from .q_publisher import main
 
-main()
+asyncio.run(main())
