@@ -1,6 +1,6 @@
 import json
 from dataclasses import asdict
-from ..model import QueueContent
+from queue_browsing.model import QueueContent
 
 
 def serialize_to_queue_msg(content: QueueContent):
