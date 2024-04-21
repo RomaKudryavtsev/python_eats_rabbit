@@ -1,14 +1,16 @@
 from .consumer import RabbitConsumer
-from queue_browsing.config import CHANNEL, QUEUE_NAME
+from queue_browsing.config import RABBIT_HOST, ROUTING_KEY, EXCHANGE_NAME
 
 
 consumer = RabbitConsumer(
-    channel=CHANNEL,
-    queue_name=QUEUE_NAME,
+    rabbit_host=RABBIT_HOST,
+    routing_key=ROUTING_KEY,
+    exchange_name=EXCHANGE_NAME,
 )
 
 
 def main():
     consumer.start_consuming()
+
 
 __all__ = ("main",)

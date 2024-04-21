@@ -1,15 +1,7 @@
-from .config import (
-    CONNECTION,
-    CHANNEL,
-    ROUTING_KEY,
-    EXCHANGE_NAME,
-    QUEUE_NAME,
-)
+from .config import ROUTING_KEY, EXCHANGE_NAME, RABBIT_HOST
 
 __all__ = (
-    "CONNECTION",
-    "CHANNEL",
     "ROUTING_KEY",
     "EXCHANGE_NAME",
-    "QUEUE_NAME",
+    "RABBIT_HOST",
 )

@@ -1,11 +1,6 @@
-import random
-from queue_browsing.config import (
-    CONNECTION,
-    CHANNEL,
-    ROUTING_KEY,
-    EXCHANGE_NAME,
-)
-from queue_browsing.model import QueueContent
+import time
+from queue_browsing.config import ROUTING_KEY, EXCHANGE_NAME, RABBIT_HOST
+from queue_browsing.model import QueueContent, QueueMsg, ProcessingStatus
 from .publisher import RabbitPublisher
 
 
@@ -17,13 +12,8 @@ def set_contents():
         contents.append(QueueContent(user_id=i, username=f"user_{i}"))
 
 
-def get_rnd_content():
-    return random.choice(contents)
-
-
 publisher = RabbitPublisher(
-    connection=CONNECTION,
-    channel=CHANNEL,
+    rabbit_host=RABBIT_HOST,
     routing_key=ROUTING_KEY,
     exchange_name=EXCHANGE_NAME,
 )
@@ -31,7 +21,13 @@ publisher = RabbitPublisher(
 
 def main():
     set_contents()
-    for _ in range(5):
-        publisher.publish(get_rnd_content())
+    for content in contents:
+        msg = QueueMsg(status=ProcessingStatus.START, content=content)
+        publisher.publish(msg)
+    time.sleep(5)
+    for content in contents:
+        msg = QueueMsg(status=ProcessingStatus.FINISH, content=content)
+        publisher.publish(msg)
+
 
 __all__ = ("main",)
