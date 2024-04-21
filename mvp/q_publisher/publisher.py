@@ -1,7 +1,7 @@
 import json
 import pika
 from dataclasses import asdict
-from queue_browsing.model import QueueMsg
+from mvp.model import QueueMsg
 
 
 def serialize_to_queue_msg(msg: QueueMsg):

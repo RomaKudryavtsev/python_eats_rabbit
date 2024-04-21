@@ -1,6 +1,6 @@
 import json
 import pika
-from queue_browsing.model import QueueMsg, ProcessingStatus
+from mvp.model import QueueMsg, ProcessingStatus
 
 
 class RabbitConsumer:

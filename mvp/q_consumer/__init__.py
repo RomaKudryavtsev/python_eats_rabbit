@@ -1,5 +1,5 @@
 from .consumer import RabbitConsumer
-from queue_browsing.config import RABBIT_HOST, ROUTING_KEY, EXCHANGE_NAME
+from mvp.config import RABBIT_HOST, ROUTING_KEY, EXCHANGE_NAME
 
 
 consumer = RabbitConsumer(

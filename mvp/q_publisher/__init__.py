@@ -1,6 +1,6 @@
 import time
-from queue_browsing.config import ROUTING_KEY, EXCHANGE_NAME, RABBIT_HOST
-from queue_browsing.model import QueueContent, QueueMsg, ProcessingStatus
+from mvp.config import ROUTING_KEY, EXCHANGE_NAME, RABBIT_HOST
+from mvp.model import QueueContent, QueueMsg, ProcessingStatus
 from .publisher import RabbitPublisher
 
 
