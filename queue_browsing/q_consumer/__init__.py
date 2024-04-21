@@ -1,10 +1,14 @@
 from .consumer import RabbitConsumer
-from queue_browsing.config import CHANNEL, queue_name
+from queue_browsing.config import CHANNEL, QUEUE_NAME
 
 
 consumer = RabbitConsumer(
     channel=CHANNEL,
-    queue_name=queue_name,
+    queue_name=QUEUE_NAME,
 )
 
-consumer.start_consuming()
+
+def main():
+    consumer.start_consuming()
+
+__all__ = ("main",)

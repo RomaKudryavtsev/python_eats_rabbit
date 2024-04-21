@@ -34,6 +34,4 @@ def main():
     for _ in range(5):
         publisher.publish(get_rnd_content())
 
-
-if __name__ == "__main__":
-    main()
+__all__ = ("main",)
